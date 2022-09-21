@@ -25,7 +25,6 @@ class BorrowController extends Controller
             'data' => $data,
         ])->with('title', 'List of Borrowed Item');
 
-        dd($data);
     }
 
     public function store(Request $request)
