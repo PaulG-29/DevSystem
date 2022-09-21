@@ -61,7 +61,7 @@ class SideMenu
                 'icon' => 'home',
                 'title' => 'Requested Items',
                 'sub_menu' => [
-                    'requestlist' => [
+                    'request-list' => [
                         'icon' => '',
                         'route_name' => 'requestlist',
                         'params' => [
