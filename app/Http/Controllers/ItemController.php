@@ -11,6 +11,12 @@ use Illuminate\Validation\Rule;
 
 class ItemController extends Controller
 {
+    public function dashboardOverview1()
+    {
+        $item = Items::Count();
+        $borrow = Borrows::Count();
+        return view('pages.dashboard-overview-1', compact('item','borrow'));
+    }  
     
     public function index()
     {
@@ -20,7 +26,7 @@ class ItemController extends Controller
             //     "active_page" => 'item_list',
             //     'title' => 'List of item | Item Area'
             // );
-        $data = array("items" => DB::table('items')->orderBy('created_at', 'asc')->paginate(8));
+        $data = array("items" => DB::table('items')->orderBy('created_at', 'asc')->paginate(5));
 
         return view('product.index', $data)->with('title', 'List of Item');
     }
