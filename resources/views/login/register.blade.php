@@ -35,8 +35,14 @@
                     <form action="/store" method="POST" class="flex flex-col">
                         @csrf
                     <div class="intro-x mt-8">
-                        <input type="text" class="intro-x login__input form-control py-3 px-4 block" name="name" placeholder="Name" value={{old('name')}} >
-                        @error('name')
+                        <input type="text" class="intro-x login__input form-control py-3 px-4 block" name="first_name" placeholder="First Name" value={{old('first_name')}} >
+                        @error('first_name')
+                        <div class="login__input-error text-danger mt-2">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        <input type="text" class="intro-x login__input form-control py-3 px-4 block mt-4" name="last_name" placeholder="Last Name" value={{old('last_name')}} >
+                        @error('last_name')
                         <div class="login__input-error text-danger mt-2">
                             {{$message}}
                         </div>

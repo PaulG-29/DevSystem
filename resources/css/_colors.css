@@ -71,7 +71,7 @@
 
 /* Theme 3 colors */
 .theme-3 {
-    --color-primary: theme("colors.rgb.purple.900");
+    --color-primary: theme("colors.rgb.purple.500");
     --color-secondary: theme("colors.rgb.slate.200");
     --color-success: theme("colors.rgb.emerald.600");
     --color-info: theme("colors.rgb.cyan.500");

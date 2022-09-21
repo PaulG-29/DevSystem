@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Items;
 use App\Models\Borrows;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -13,9 +14,12 @@ class ItemController extends Controller
 {
     public function dashboardOverview1()
     {
-        $item = Items::Count();
-        $borrow = Borrows::Count();
-        return view('pages.dashboard-overview-1', compact('item','borrow'));
+        $items = Items::All();
+        $borrow = Borrows::count();
+        $dd = Borrows::where("status", '0')->get();
+        $order = Orders::count();
+
+        return view('pages.dashboard-overview-1', compact('items','borrow','order','dd'));
     }  
     
     public function index()

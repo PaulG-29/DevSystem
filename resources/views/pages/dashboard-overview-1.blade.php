@@ -25,12 +25,12 @@
                                     <div class="flex">
                                         <i data-lucide="activity" class="report-box__icon text-primary"></i>
                                         <div class="ml-auto">
-                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month">
-                                                33% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
+                                            {{-- <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month">
+                                            <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6"></div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{count($items)}}</div>
                                     <div class="text-base text-slate-500 mt-1">No. of Item</div>
                                 </div>
                             </div>
@@ -41,12 +41,12 @@
                                     <div class="flex">
                                         <i data-lucide="credit-card" class="report-box__icon text-pending"></i>
                                         <div class="ml-auto">
-                                            <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
+                                            {{-- <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
                                                 2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">3.721</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{$order}}</div>
                                     <div class="text-base text-slate-500 mt-1">No. of Requested Item</div>
                                 </div>
                             </div>
@@ -57,12 +57,12 @@
                                     <div class="flex">
                                         <i data-lucide="monitor" class="report-box__icon text-warning"></i>
                                         <div class="ml-auto">
-                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month">
+                                            {{-- <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month">
                                                 12% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">2.149</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{$borrow}}</div>
                                     <div class="text-base text-slate-500 mt-1">No. of Borrowed Item</div>
                                 </div>
                             </div>
@@ -73,12 +73,12 @@
                                     <div class="flex">
                                         <i data-lucide="user" class="report-box__icon text-success"></i>
                                         <div class="ml-auto">
-                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month">
+                                            {{-- <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month">
                                                 22% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">152.040</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{count($dd)}}</div>
                                     <div class="text-base text-slate-500 mt-1">No. of Not Returned</div>
                                 </div>
                             </div>
@@ -101,104 +101,64 @@
                             </button>
                         </div>
                     </div>
-                    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                        <table class="table table-report sm:mt-2">
+                    <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+                        <table class="table table-report -mt-2">
                             <thead>
                                 <tr>
-                                    <th class="whitespace-nowrap">IMAGES</th>
-                                    <th class="whitespace-nowrap">PRODUCT NAME</th>
-                                    <th class="text-center whitespace-nowrap">STOCK</th>
+                                    <th class="text-center whitespace-nowrap">#</th>
+                                    <th class="whitespace-nowrap">ITEM NAME</th>
+                                    <th class="whitespace-nowrap">DESCRIPTION</th>
+                                    <th class="text-center whitespace-nowrap">QUANTITY</th>
+                                    <th class="text-center whitespace-nowrap">DATE OF PURCHASE</th>
+                                    <th class="text-center whitespace-nowrap">DATE OF VALIDITY</th>
                                     <th class="text-center whitespace-nowrap">STATUS</th>
-                                    <th class="text-center whitespace-nowrap">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (array_slice($fakers, 0, 4) as $faker)
-                                    <tr class="intro-x">
-                                        <td class="w-40">
-                                            <div class="flex">
-                                                <div class="w-10 h-10 image-fit zoom-in">
-                                                    <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{ asset('build/assets/images/' . $faker['images'][0]) }}" title="Uploaded at {{ $faker['dates'][0] }}">
-                                                </div>
-                                                <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                    <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{ asset('build/assets/images/' . $faker['images'][1]) }}" title="Uploaded at {{ $faker['dates'][1] }}">
-                                                </div>
-                                                <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                    <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{ asset('build/assets/images/' . $faker['images'][2]) }}" title="Uploaded at {{ $faker['dates'][2] }}">
-                                                </div>
-                                            </div>
+                                @if(!empty($items) && $items->count())
+                                @foreach ($items as $item)
+                                    <tr class="intro-x">    
+                                        <td class="text-center">
+                                            {{ $item->id }}.
                                         </td>
                                         <td>
-                                            <a href="" class="font-medium whitespace-nowrap">{{ $faker['products'][0]['name'] }}</a>
-                                            <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{ $faker['products'][0]['category'] }}</div>
+                                            <div class="font-medium whitespace-nowrap">
+                                                {{ $item->item_name }}</div>
                                         </td>
-                                        <td class="text-center">{{ $faker['stocks'][0] }}</td>
+                                        <td>
+                                            {{ $item->description }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $item->item_no }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $item->date_purchase }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $item->date_validty }}
+                                        </td>
                                         <td class="w-40">
-                                            <div class="flex items-center justify-center {{ $faker['true_false'][0] ? 'text-success' : 'text-danger' }}">
-                                                <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $faker['true_false'][0] ? 'Active' : 'Inactive' }}
-                                            </div>
-                                        </td>
-                                        <td class="table-report__action w-56">
-                                            <div class="flex justify-center items-center">
-                                                <a class="flex items-center mr-3" href="">
-                                                    <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> Edit
-                                                </a>
-                                                <a class="flex items-center text-danger" href="">
-                                                    <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete
-                                                </a>
+                                            <div class="flex items-center justify-center {{ $item->status == '1' ? 'text-success' : 'text-danger' }}">
+                                                <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $item->status == '1' ? 'Active':'Inactive' }}
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @endforeach
+                                    @else
+                                    <tr class="mt-2">
+                                       <td></td>
+                                       <td></td>
+                                       <td></td>
+                                       <td>There are no data.</td>
+                                       <td></td>
+                                       <td></td>
+                                       <td></td> 
+                                    </tr>
+                                    @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="intro-y flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-3">
-                        <nav class="w-full sm:w-auto sm:mr-auto">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="w-4 h-4" data-lucide="chevrons-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="w-4 h-4" data-lucide="chevron-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">...</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">...</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="w-4 h-4" data-lucide="chevron-right"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="w-4 h-4" data-lucide="chevrons-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <select class="w-20 form-select box mt-3 sm:mt-0">
-                            <option>10</option>
-                            <option>25</option>
-                            <option>35</option>
-                            <option>50</option>
-                        </select>
                     </div>
                 </div>
                 <!-- END: Weekly Top Products -->

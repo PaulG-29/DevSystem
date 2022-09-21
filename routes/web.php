@@ -26,12 +26,13 @@ use App\Models\Orders;
 
 //Landing Page
 
-Route::get('/index', [MainController::class, 'index']);
+;
 
 
 Route::controller(UserController::class)->group(function() {
     Route::get('/register', 'register');
-    Route::get('login', 'login')->name('login')->middleware('guest');
+    Route::get('/index', 'main');
+    Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('login/process', 'process')->name('check');
     Route::post('/logout', 'logout');
     Route::post('/store', 'store');
@@ -39,12 +40,6 @@ Route::controller(UserController::class)->group(function() {
 
 
 Route::get('/', [ItemController::class, 'dashboardOverview1'])->name('dashboard-overview-1')->middleware('auth');
-
-// Route::middleware('auth')->group(function() {
-//     Route::controller(ItemController::class)->group(function() {
-//         Route::get('/', 'dashboardOverview1')->name('dashboard-overview-1');
-//     });
-// });
 
 // Item Route
 

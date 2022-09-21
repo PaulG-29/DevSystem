@@ -21,14 +21,28 @@ class UserController extends Controller
         return 'Hello from UserController';
     }
 
-    public function login()
+    public function main()
     {
-        if(View::exists('login.main'))
+        if(View::exists('index'))
         {
-            return view('login.main', ['layout'=>'login']);
+            return view('index');
         }else{
             return abort(404);
         }
+    }
+
+    public function login()
+    {
+
+        return view('login.main', [
+            'layout' => 'login'
+        ]);
+        // if(View::exists('login.main'))
+        // {
+        //     return view('login.main', ['layout'=>'login']);
+        // }else{
+        //     return abort(404);
+        // }
     }
 
     public function process(Request $request)
@@ -62,7 +76,8 @@ class UserController extends Controller
     {
         $validated = $request->validate
         (
-            ["name" => ['required', 'min:4'], 
+            ["first_name" => ['required'],
+             "last_name" => ['required'],
              "email" => ['required', 'email', Rule::unique('users', 'email')],
              'password'=> 'required|confirmed|min:6'
             ]
@@ -86,6 +101,6 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
   
-        return redirect('/login')->with('message', 'Logout successful');
+        return redirect('/index')->with('message', 'Logout successful');
     }
 }
