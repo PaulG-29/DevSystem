@@ -1,4 +1,4 @@
-{{-- @dd(auth()->user()->password); --}}
+{{-- @dd($items->Count()) --}}
 @extends('../layout/' . $layout)
 
 @section('subhead')
@@ -30,7 +30,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">4.710</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6"></div>
                                     <div class="text-base text-slate-500 mt-1">No. of Item</div>
                                 </div>
                             </div>

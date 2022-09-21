@@ -14,10 +14,10 @@
                         
                        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Request Name</label>
                        <input id="crud-form-1" name="request_name" type="text" class="form-control w-full" placeholder="Request Name" required>
-                       <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Item</label>
-                       <input id="crud-form-3" name="purpose" type="text" class="form-control" placeholder="Item Name" aria-describedby="input-group-1" required>
                        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Purpose</label>
-                       <input id="crud-form-3" name="item" type="text" class="form-control" placeholder="Purpose" aria-describedby="input-group-1" required>
+                       <input id="crud-form-3" name="purpose" type="text" class="form-control" placeholder="Purpose" aria-describedby="input-group-1" required>
+                       <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Item</label>
+                       <input id="crud-form-3" name="item" type="text" class="form-control" placeholder="Item Name" aria-describedby="input-group-1" required>
                        <label for="date" class="block text-sm font-medium text-gray-900 dark:text-gray-300 m">Quantity</label>
                        <input id="crud-form-3" name="qty" type="number" class="form-control" placeholder="Quantity" aria-describedby="input-group-1" required>
                        <label for="date" class="block text-sm font-medium text-gray-900 dark:text-gray-300 m">Amount</label>

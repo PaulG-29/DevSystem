@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DarkModeController;
@@ -24,6 +24,11 @@ use App\Models\Orders;
 */
 
 
+//Landing Page
+
+Route::get('/index', [MainController::class, 'index']);
+
+
 Route::controller(UserController::class)->group(function() {
     Route::get('/register', 'register');
     Route::get('login', 'login')->name('login')->middleware('guest');
@@ -31,6 +36,15 @@ Route::controller(UserController::class)->group(function() {
     Route::post('/logout', 'logout');
     Route::post('/store', 'store');
 });
+
+
+Route::get('/', [ItemController::class, 'dashboardOverview1'])->name('dashboard-overview-1')->middleware('auth');
+
+// Route::middleware('auth')->group(function() {
+//     Route::controller(ItemController::class)->group(function() {
+//         Route::get('/', 'dashboardOverview1')->name('dashboard-overview-1');
+//     });
+// });
 
 // Item Route
 
@@ -54,8 +68,4 @@ Route::post('updaterequest', [OrderController::class, 'edit'])->name('request.ed
 Route::post('/deleterequest', [OrderController::class, 'destroy'])->name('request.destroy');
 
 
-Route::middleware('auth')->group(function() {
-    Route::controller(PageController::class)->group(function() {
-        Route::get('/', 'dashboardOverview1')->name('dashboard-overview-1');
-    });
-});
+

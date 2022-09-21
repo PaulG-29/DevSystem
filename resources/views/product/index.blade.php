@@ -67,6 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if(!empty($items) && $items->count())
                     @foreach ($items as $item)
                         <tr class="intro-x">    
                             <td class="text-center">
@@ -109,6 +110,18 @@
                             </td>
                         </tr>
                         @endforeach
+                        @else
+                        <tr class="mt-2">
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>There are no data.</td>
+                           <td></td>
+                           <td></td>
+                           <td></td> 
+                        </tr>
+                        @endif
                 </tbody>
             </table>
                

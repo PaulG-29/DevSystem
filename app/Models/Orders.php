@@ -7,16 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orders extends Model
 {
+
+    protected $guarded = [];
+
     use HasFactory;
 
-    protected $table = "orders";
-
-    protected $fillable = [
-        'request_name',
-        'purpose',
-        'item',
-        'qty',
-        'amount',
-        'status',
-    ];
 }

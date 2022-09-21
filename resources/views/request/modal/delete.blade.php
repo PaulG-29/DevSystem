@@ -1,7 +1,7 @@
-<div id="delete{{$borrow->id}}" class="modal" tabindex="-1" aria-hidden="true">
+<div id="delete{{$order->id}}" class="modal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-        <form action="{{ route('borrow.destroy')}}" method="POST">
+        <form action="{{ route('request.destroy')}}" method="POST">
             @csrf
 
                 <div class="modal-body p-0">
@@ -13,7 +13,7 @@
        
             <div class="px-5 pb-8 text-center">
                 <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
-                <input type="hidden" name="id" value="{{ $borrow->id }}">
+                <input type="hidden" name="id" value="{{ $order->id }}">
                 <button type="submit" class="btn btn-danger w-24">Delete</button>            
             </div>   
         </form>        

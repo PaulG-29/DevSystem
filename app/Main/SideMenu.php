@@ -71,20 +71,20 @@ class SideMenu
                     ],
                 ]
             ],
-            'reports' => [
-                'icon' => 'home',
-                'title' => 'Reports',
-                'sub_menu' => [
-                    'dashboard-overview-1' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Reports'
-                    ],
-                ]
-            ],
+            // 'reports' => [
+            //     'icon' => 'home',
+            //     'title' => 'Reports',
+            //     'sub_menu' => [
+            //         'dashboard-overview-1' => [
+            //             'icon' => '',
+            //             'route_name' => 'dashboard-overview-1',
+            //             'params' => [
+            //                 'layout' => 'side-menu',
+            //             ],
+            //             'title' => 'Reports'
+            //         ],
+            //     ]
+            // ],
         ];
     }
 }

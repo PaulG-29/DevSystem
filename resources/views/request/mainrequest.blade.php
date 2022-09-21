@@ -8,12 +8,12 @@
 
 @section('subcontent')
 <x-messages />
-    <h2 class="intro-y text-lg font-medium mt-10">Add Request</h2>
+    <h2 class="intro-y text-lg font-medium mt-10">Purchase Request</h2>
 
     <div class="grid grid-cols-12 gap-6 mt-5">
  
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-            <button data-tw-toggle="modal" data-tw-target="#request" class="btn btn-primary shadow-md mr-2">Add Borrower</button>
+            <button data-tw-toggle="modal" data-tw-target="#request" class="btn btn-primary shadow-md mr-2">Add Request</button>
             <div class="dropdown">
                 <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
                     <span class="w-5 h-5 flex items-center justify-center">
@@ -65,6 +65,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if(!empty($orders) && $orders->count())
                   @foreach ($orders as $order)
                         <tr class="intro-x">    
                             <td class="text-center">
@@ -88,23 +89,43 @@
                             {{ $order->amount}}
                             </td>
                             <td class="w-40">
-                           <div class="flex items-center justify-center {{ $borrow->status == '1' ? 'text-success' : 'text-danger' }}">
+                           <div class="flex items-center justify-center {{ $order->status == '1' ? 'text-success' : 'text-danger' }}">
                                     <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $order->status == '1' ? 'Approved':'Pending' }}
                             </div> 
                             </td>
                                                
                             <td class="table-report__action w-56">  
                                 <div class="flex justify-center items-center">
-
-
+                                    <a href="#edit{{$order->id}}" class="flex items-center mr-3" href="javascript:;" data-tw-toggle="modal" data-tw-target="#edit{{$order->id}}">
+                                        <i data-lucide="check-square" class="w-4 h-4 mr-1" ></i> Edit
+                                    </a>
+                                    @include('request.modal.edit')   
+                                    {{-- @include('borrow.modal.edit') --}}
+                                     
+                                    <a href="#delete{{$order->id}}" class="flex items-center text-danger" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete{{ $order->id }}">
+                                        <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete        
+                                    </a>
+                                    @include('request.modal.delete')   
 
                                 </div>
                             </td>
                         </tr>
                      @endforeach
+                     @else
+                     <tr class="mt-2">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>There are no data.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td> 
+                     </tr>
+                     @endif
                 </tbody>
-            <!-- </table>
-            {{-- {{ $borrow->links('pagination::tailwind')}} --}} -->
+            </table>
+            {{-- {{ $order->links('pagination::tailwind')}} --}}
         </div>
    
         <div class="intro-y col-span-12  flex-wrap md:flex-row">
