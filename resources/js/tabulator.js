@@ -50,34 +50,7 @@ import Tabulator from "tabulator-tables";
                         </div>`;
                     },
                 },
-                {
-                    title: "IMAGES",
-                    minWidth: 200,
-                    field: "images",
-                    hozAlign: "center",
-                    vertAlign: "middle",
-                    print: false,
-                    download: false,
-                    formatter(cell, formatterParams) {
-                        return `<div class="flex lg:justify-center">
-                            <div class="intro-x w-10 h-10 image-fit">
-                                <img alt="Midone - HTML Admin Template" class="rounded-full" src="/build/assets/images/${
-                                    cell.getData().images[0]
-                                }">
-                            </div>
-                            <div class="intro-x w-10 h-10 image-fit -ml-5">
-                                <img alt="Midone - HTML Admin Template" class="rounded-full" src="/build/assets/images/${
-                                    cell.getData().images[1]
-                                }">
-                            </div>
-                            <div class="intro-x w-10 h-10 image-fit -ml-5">
-                                <img alt="Midone - HTML Admin Template" class="rounded-full" src="/build/assets/images/${
-                                    cell.getData().images[2]
-                                }">
-                            </div>
-                        </div>`;
-                    },
-                },
+
                 {
                     title: "REMAINING STOCK",
                     minWidth: 200,

@@ -65,9 +65,9 @@ class BorrowController extends Controller
     }
 
     public function destroy(Request $request){ 
-        $borrow = Borrows::findorfail($request->item_id);
+        $borrow = Borrows::findorfail($request->id);
         $borrow->delete();  
 
-        return back()->with('message', 'Data was successfully deleted');
+        return redirect('/borrow-list')->with('message', 'Data was successfully deleted');
      }
 }
