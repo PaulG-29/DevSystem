@@ -16,7 +16,7 @@
                     </span>
                 </a>
                 <div class="my-auto">
-                    {{-- <img alt="Midone - HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{ asset('build/assets/images/illustration.svg') }}"> --}}
+                
 
                 </div>
             </div>
