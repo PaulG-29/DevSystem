@@ -71,20 +71,29 @@ class SideMenu
                     ],
                 ]
             ],
-            // 'reports' => [
-            //     'icon' => 'home',
-            //     'title' => 'Reports',
-            //     'sub_menu' => [
-            //         'dashboard-overview-1' => [
-            //             'icon' => '',
-            //             'route_name' => 'dashboard-overview-1',
-            //             'params' => [
-            //                 'layout' => 'side-menu',
-            //             ],
-            //             'title' => 'Reports'
-            //         ],
-            //     ]
-            // ],
+            'profile' => [
+                'icon' => 'settings',
+                'title' => 'User Profile',
+                'sub_menu' => [
+                    'profile' => [
+                        'icon' => 'user',
+                        'route_name' => 'profile',
+                        'params' => [
+                            'layout' => 'side-menu',
+                        ],
+                        'title' => 'profile'
+                    ],
+                    'changepass' => [
+                        'icon' => 'user',
+                        'route_name' => 'changepass',
+                        'params' => [
+                            'layout' => 'side-menu',
+                        ],
+                        'title' => 'Change Password'
+                    ],
+                ]
+                
+            ],
         ];
     }
 }

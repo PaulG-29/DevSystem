@@ -30,9 +30,18 @@ class ItemController extends Controller
             //     "active_page" => 'item_list',
             //     'title' => 'List of item | Item Area'
             // );
+        $item = Items::All();
         $data = array("items" => DB::table('items')->orderBy('created_at', 'asc')->paginate(5));
+        for ($i = 0; $i < count($item); $i++) {
+            $item[$i]['item_no'] = $item[$i]['item_no'] - $item[$i]->borrows()->sum('item_no');
+        }
+        //  dd($item);
 
-        return view('product.index', $data)->with('title', 'List of Item');
+        return view('product.index', [
+            'items' => $item,
+            'data' => $data,
+        ])
+        ->with('title', 'List of Item');
     }
 
     public function store(Request $request)
@@ -66,13 +75,13 @@ class ItemController extends Controller
 
         // dd($item);
         
-        return redirect('/item-list')->with('message', 'New Item was added successfully!');
+        return redirect('/item-list')->with('message', 'Item was updated successfully!');
     }
 
     public function destroy(Request $request){ 
         $item = Items::findorfail($request->id);
         $item->delete();  
 
-        return back()->with('message', 'Data was successfully updated');
+        return back()->with('message', 'Data was successfully Deleted');
      }
 }

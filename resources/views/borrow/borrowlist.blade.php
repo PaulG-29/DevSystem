@@ -97,7 +97,7 @@
                         </td>
                             <td class="w-40">
                                 <div class="flex items-center justify-center {{ $borrow->status == '1' ? 'text-success' : 'text-danger' }}">
-                                    <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $borrow->status == '1' ? 'Active':'Inactive' }}
+                                    <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $borrow->status == '1' ? 'Returned':'UnReturned' }}
                                 </div>
                             </td>
                                                

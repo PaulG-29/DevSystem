@@ -41,7 +41,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="hidden md:block mx-auto text-slate-500"> {{ $items->links('pagination::tailwind-show')}} </div>
+            {{-- {{ $items->links('pagination::tailwind-show')}} --}}
+            <div class="hidden md:block mx-auto text-slate-500">  </div>
             <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
                 <div class="w-56 relative text-slate-500">
                     <form action="/item-list" method="GET">
@@ -67,7 +68,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if(!empty($items) && $items->count())
+          
+                    @if(!empty($items) && count($items)) 
                     @foreach ($items as $item)
                         <tr class="intro-x">    
                             <td class="text-center">
@@ -128,7 +130,7 @@
         </div>
    
         <div class="intro-y col-span-12  flex-wrap md:flex-row">
-            {{ $items->links('pagination::tailwind')}}
+            {{-- {{ $item->links('pagination::tailwind')}} --}}
         </div>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

@@ -41,7 +41,7 @@
                     </div>
                     <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
                         <div class="flex items-center mr-auto">
-                            <input id="remember-me" type="checkbox" class="form-check-input border mr-2">
+                            <input name="remember" id="remember-me" type="checkbox" class="form-check-input border mr-2">
                             <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
                         </div>
                         <a href="">Forgot Password?</a>
