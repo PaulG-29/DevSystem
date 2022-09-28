@@ -44,7 +44,7 @@ class SideMenu
 
                 ],
             'borrow items' => [
-                'icon' => 'home',
+                'icon' => 'edit',
                 'title' => 'Borrowed Items',
                 'sub_menu' => [
                     'borrow-list' => [
@@ -58,7 +58,7 @@ class SideMenu
                 ]
             ],
             'request item' => [
-                'icon' => 'home',
+                'icon' => 'edit',
                 'title' => 'Requested Items',
                 'sub_menu' => [
                     'request-list' => [

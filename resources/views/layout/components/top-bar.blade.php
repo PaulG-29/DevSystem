@@ -16,7 +16,7 @@
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-            <img alt="" src="">
+            <img alt="" src="{{ asset('/storage/'. auth()->user()->photo)}}">
         </div>
         <div class="dropdown-menu w-56">
             <ul class="dropdown-content bg-primary text-white">
@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/" class="dropdown-item hover:bg-white/5">
+                    <a href="/changepass" class="dropdown-item hover:bg-white/5">
                         <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Change Password
                     </a>
                 </li>

@@ -21,7 +21,7 @@
                 </div>
                 <div class="p-5">
                     <div class="flex flex-col-reverse xl:flex-row flex-col">
-                        <form action="{{route('update-profile')}}" method="POST">
+                        <form action="{{route('update-profile')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                         <div class="flex-1 mt-6 xl:mt-0">
                             <div class="grid grid-cols-12 gap-x-5">
@@ -52,6 +52,20 @@
                                     </div>
                                 </div>
                                 <div class="col-span-12 2xl:col-span-6">
+                                    <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
+                                        <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
+                                            <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
+                                                <img class="rounded-md" alt="" src="{{ asset('/storage/'. auth()->user()->photo)}}">
+                                                <div title="Remove this profile photo?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
+                                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                                </div>
+                                            </div>
+                                            <div class="mx-auto cursor-pointer relative mt-5">
+                                                <button type="submit" value="save" class="btn btn-primary w-full">Change Photo</button>
+                                                <input name="photo" type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-span-12">
                                 </div>
@@ -60,22 +74,9 @@
                             <button type="submit" class="btn btn-primary w-full">Save</button>
                         </div>
                         </div>
-                    </form>
-                    <form action="{{url('upload-photo')}}" method="POST">
-                        <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
-                            <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
-                                <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                                    <img class="rounded-md" alt="" src="{{ asset(auth()->user()->photo) }}">
-                                    <div title="Remove this profile photo?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                        <i data-lucide="x" class="w-4 h-4"></i>
-                                    </div>
-                                </div>
-                                <div class="mx-auto cursor-pointer relative mt-5">
-                                    <button type="submit" value="save" class="btn btn-primary w-full">Change Photo</button>
-                                    <input name="photo" type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
-                                </div>
-                            </div>
-                        </div>
+
+                    {{-- </form> --}}
+                    {{-- <form action="{{route('upload-photo')}}" method="POST" enctype="multipart/form-data"> --}}
                     </div>
                 </form>
                 </div>

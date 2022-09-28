@@ -44,7 +44,7 @@ Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('update-profile');
 Route::get('/changepass', [UserController::class, 'changepassword'])->name('changepass');
 Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password');
-Route::resource('/upload-photo', UserController::class);
+Route::post('/upload-photo', [UserController::class, 'updatePhoto'])->name('upload-photo');
 
 // Item Route
 

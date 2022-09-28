@@ -16,9 +16,6 @@
                     </span>
                 </a>
                 <div class="my-auto">
-
-                    <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">A few more clicks to <br> sign up to your account.</div>
-                    <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">Manage all your e-commerce accounts in one place</div>
                 </div>
             </div>
             

@@ -102,7 +102,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
   
-        return redirect('/login')->with('message', 'Logout successful');
+        return redirect('/index')->with('message', 'Logout successful');
     }
 
     public function profile()
@@ -140,24 +140,28 @@ class UserController extends Controller
 
     public function updateProfile(Request $request, User $user)
     {
+        // dd($request->all());
         $user = User::findorfail($request->id);
         $user -> first_name = $request-> first_name;
         $user -> last_name = $request -> last_name;
         $user -> email = $request-> email;
+        if ($request->photo !== null) {
+            $user->photo = $request->file('photo')->store('storage', 'public');
+        }
 
         $user->update();
 
         return back()->with('message', 'Data was successfully updated');
     }
 
-    public function updatePhoto(Request $request)
-    {
-        $requestData = $request->all();
-        $fileName = time().$request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->storeAs('images', $fileName, 'public');
-        $requestData["photo"] = '/storage/'.$path;
-        User::create($requestData);
+    // public function updatePhoto(Request $request)
+    // {
+    //     $requestData = $request->all();
+    //     $fileName = time().$request->file('photo')->getClientOriginalName();
+    //     $path = $request->file('photo')->storeAs('images', $fileName, 'public');
+    //     $requestData["photo"] = '/storage/'.$path;
+    //     User::create($requestData);
         
-        return redirect('/profile')->with('flash_message', 'Employee Addedd!');  
-    }
+    //     return redirect('/profile')->with('flash_message', 'Employee Addedd!');  
+    // }
 }
